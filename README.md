@@ -1,4 +1,4 @@
-# 基于vue3.0+ts+Element通用后台admin模板
+# 基于vue3.0+ts+Element通用后台系统
 
 ## Project setup
 ```
