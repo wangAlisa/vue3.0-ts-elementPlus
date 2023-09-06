@@ -3,6 +3,7 @@
   <div class="layout">
     <Leftnav class="leftnav"></Leftnav>
     <div class="context">
+      <Breadcrumb />
       <router-view />
     </div>
   </div>
@@ -12,11 +13,13 @@
 import { defineComponent } from "vue";
 import Leftnav from "@/components/nav/leftnav/Navleft.vue";
 import TopNav from "@/components/nav/topnav/Navtop.vue";
+import Breadcrumb from "@/components/nav/breadcrumb/Breadcrumb.vue";
 
 export default defineComponent({
   components: {
     Leftnav,
     TopNav,
+    Breadcrumb,
   },
   setup() {
     return {};

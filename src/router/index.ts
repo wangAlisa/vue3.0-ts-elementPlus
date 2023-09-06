@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import store from "@/store/index";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,14 +9,42 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    name: "Layout",
+    name: "layout",
     component: () => import("../views/layout/Layout.vue"),
     redirect: "/home",
+    meta: {
+      name: "首页",
+    },
     children: [
       {
         path: "/home",
-        name: "Home",
+        name: "home",
         component: () => import("@/views/home/Home.vue"),
+      },
+      {
+        path: "/table",
+        name: "table",
+        meta: {
+          name: "表格管理",
+        },
+        children: [
+          {
+            path: "basics",
+            name: "basics",
+            component: () => import("@/views/table/basics.vue"),
+            meta: {
+              name: "基础表格",
+            },
+          },
+          {
+            path: "complex",
+            name: "complex",
+            component: () => import("@/views/table/complex.vue"),
+            meta: {
+              name: "复杂表格",
+            },
+          },
+        ],
       },
     ],
   },
@@ -24,6 +53,15 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.afterEach((to: any) => {
+  console.log("to", to);
+  const routerList: any = to.matched;
+  //顶部面包屑
+  store.commit("setCrumbList", routerList);
+  //目前左边导航选中的active
+  store.commit("SET_CURRENT_MENU", to.name);
 });
 
 export default router;

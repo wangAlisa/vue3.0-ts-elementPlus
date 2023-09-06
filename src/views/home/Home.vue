@@ -1,8 +1,31 @@
 <template>
-  <div>
-    <div class="title">简洁/实用<span>vue3.0+ts</span> 现成模板</div>
+  <div class="home">
+    <div class="title"><span>vue3.0+ts</span>后台</div>
+    <div class="title">vue/cli脚手架搭箭的项目框架</div>
     <div>
-      <router-link class="go-contact" to="/contact">点击获取源码</router-link>
+      <a
+        class="go-contact"
+        href="https://www.jianshu.com/p/86ec59f1ca7a"
+        target="_blank"
+      >
+        实践过程中遇到的问题汇总文档</a
+      >
+    </div>
+    <div>
+      <a
+        class="go-contact"
+        href="https://github.com/wangAlisa/vue3.0-ts-elementPlus"
+        target="_blank"
+        >github源码</a
+      >
+    </div>
+    <div>
+      <a
+        class="go-contact"
+        href="https://element-plus.org/zh-CN/"
+        target="_blank"
+        >element plus 官网</a
+      >
     </div>
   </div>
 </template>
@@ -17,6 +40,9 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
+.home {
+  text-align: center;
+}
 .title {
   font-size: 40px;
   font-weight: 600;
