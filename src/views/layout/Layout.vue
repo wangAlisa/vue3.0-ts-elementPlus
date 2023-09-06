@@ -10,10 +10,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, provide } from "vue";
 import Leftnav from "@/components/nav/leftnav/Navleft.vue";
 import TopNav from "@/components/nav/topnav/Navtop.vue";
 import Breadcrumb from "@/components/nav/breadcrumb/Breadcrumb.vue";
+import { apiGetuserinfo } from "@/apis/user";
 
 export default defineComponent({
   components: {
@@ -22,7 +23,23 @@ export default defineComponent({
     Breadcrumb,
   },
   setup() {
-    return {};
+    provide("userName", "小明");
+    onMounted(() => {
+      getUserInfo();
+    });
+
+    function getUserInfo() {
+      // const param = {
+      //   userID: "10001",
+      //   userName: "Mike",
+      // };
+      // apiGetuserinfo(param).then((res) => {
+      //   console.log(res);
+      // });
+    }
+    return {
+      apiGetuserinfo,
+    };
   },
 });
 </script>

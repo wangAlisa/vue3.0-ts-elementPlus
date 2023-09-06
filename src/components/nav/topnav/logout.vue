@@ -1,7 +1,7 @@
 <template>
   <div class="user-msg">
     <el-dropdown>
-      <span class="user-name">小明</span>
+      <span class="user-name">{{ userName }}</span>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="logout">退出登陆</el-dropdown-item>
@@ -11,11 +11,13 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, inject } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
+    const userName = inject("userName");
+    console.log(userName, "userName");
     let router = useRouter();
     let logout = function () {
       window.localStorage.clear();
@@ -25,6 +27,7 @@ export default defineComponent({
     };
     return {
       logout,
+      userName,
     };
   },
 });
