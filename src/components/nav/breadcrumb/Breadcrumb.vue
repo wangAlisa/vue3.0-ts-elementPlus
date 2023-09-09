@@ -1,11 +1,12 @@
 <template>
   <el-breadcrumb separator="/" class="breadcrumb">
     <transition-group name="breadcrumb">
-      <!-- 防止面包屑导航出现 首页/首页， v-if="route.name!='home'" -->
       <el-breadcrumb-item
         v-for="(route, i) in state.crumbList"
         :key="i"
-        :to="{ path: route.path }"
+        :to="{
+          path: !route.children || route.children.length == 0 ? route.path : '',
+        }"
       >
         <span v-if="route.name != 'home'">{{ route.meta.name }}</span>
       </el-breadcrumb-item>

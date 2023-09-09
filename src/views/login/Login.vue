@@ -1,4 +1,8 @@
 <template>
+  <div class="time">
+    当前日期是北京时间
+    <SetTime>{{}}</SetTime>
+  </div>
   <div class="demo">
     <el-form
       ref="ruleFormRef"
@@ -34,7 +38,11 @@
 import { defineComponent, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import type { FormInstance, FormRules } from "element-plus";
+import SetTime from "@/components/time/SetTime.vue";
 export default defineComponent({
+  components: {
+    SetTime,
+  },
   setup() {
     let ruleForm = reactive({
       name: "",
@@ -88,6 +96,10 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
+.time {
+  margin: 50px 100px;
+  font-size: 18px;
+}
 .demo {
   &-ruleForm {
     width: 300px;

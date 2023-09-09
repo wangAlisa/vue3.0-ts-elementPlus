@@ -56,6 +56,13 @@ export default defineComponent({
           },
         ],
       },
+      {
+        id: 3,
+        title: "组件通信",
+        icon: "",
+        path: "/refuse",
+        children: [],
+      },
     ];
 
     const store = useStore();

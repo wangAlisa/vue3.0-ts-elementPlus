@@ -7,7 +7,7 @@
         :key="m.id"
       >
         <template v-slot:title>
-          <component :is="m.icon" />
+          <component :is="m.icon" style="font-size: 12px" />
           <span>{{ m.title }}</span>
         </template>
         <el-menu-item-group>
@@ -56,5 +56,6 @@ export default defineComponent({
 <style lang="less" scoped>
 .menu {
   font-size: 12px;
+  width: 140px;
 }
 </style>

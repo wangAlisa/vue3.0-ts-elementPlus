@@ -11,15 +11,18 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "layout",
     component: () => import("../views/layout/Layout.vue"),
-    redirect: "/home",
+    redirect: "/login",
     meta: {
-      name: "首页",
+      name: "后台系统",
     },
     children: [
       {
         path: "/home",
         name: "home",
         component: () => import("@/views/home/Home.vue"),
+        meta: {
+          name: "首页",
+        },
       },
       {
         path: "/table",
@@ -45,6 +48,14 @@ const routes: Array<RouteRecordRaw> = [
             },
           },
         ],
+      },
+      {
+        path: "/refuse",
+        name: "refuse",
+        component: () => import("../views/refuse/Refuse.vue"),
+        meta: {
+          name: "组件通信",
+        },
       },
     ],
   },
